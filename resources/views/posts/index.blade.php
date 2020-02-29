@@ -7,7 +7,7 @@
             @foreach($posts as $post)
                 <div class="jumbotron">
                     <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
-                    <p class="font-weight-light" style="font-size: 15px;">written on {{ $post->created_at }}</p>
+                    <p class="font-weight-light" style="font-size: 15px;">written on {{ $post->created_at }} by {{$post->user->name}}</p>
                 </div>
             @endforeach
 
