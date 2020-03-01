@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Post</h1>
+        <h1>Edit Post</h1>
         <hr>
 
-        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST']) !!}
+        {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             @csrf
             {{ Form::hidden('_method', 'PUT') }}
             
@@ -16,6 +16,9 @@
             <div class="form-group">
                 {{Form::label('Body', 'Body')}}
                 {{Form::textarea('body', $post->body, ['class' => 'form-control', 'placeholder' => 'Body Text'])}}
+            </div>
+            <div class="form-group">
+                {{Form::file('cover_image')}}
             </div>
             {{Form::submit('submit', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
